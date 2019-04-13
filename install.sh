@@ -25,6 +25,7 @@ pkgs="$pkgs mc"					# Nostalgia :-)
 pkgs="$pkgs tmux screen"			# I go both ways (in a good way)
 pkgs="$pkgs vim vim-plugins"			# How can we live without vim ???
 pkgs="$pkgs screenfetch"			# Showing off
+pkgs="$pkgs lshw"				# Tools to list hardware
 # Networking / Internet
 pkgs="$pkgs openssh"				# We should be able to SSH/SFTP to this PC
 pkgs="$pkgs iw wpa_supplicant dhclient"		# Who uses Ethernet these days ???
