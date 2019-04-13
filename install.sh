@@ -29,7 +29,7 @@ pkgs="$pkgs lshw"				# Tools to list hardware
 # Networking / Internet
 pkgs="$pkgs openssh"				# We should be able to SSH/SFTP to this PC
 pkgs="$pkgs iw wpa_supplicant dhclient"		# Who uses Ethernet these days ???
-pkgs="$pkgs lyns links"				# Text based browsers just if needed
+pkgs="$pkgs lynx links"				# Text based browsers just if needed
 pkgs="$pkgs aria2 curl wget"			# Download tools
 pkgs="$pkgs mutt"				# Reading emails
 # Development
