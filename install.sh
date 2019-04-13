@@ -18,6 +18,7 @@ pkgs="$pkgs sudo"				# Who keeps root account enabled these days???
 pkgs="$pkgs btrfs-progs"			# I am a btrfs user :-/
 #### pkgs="$pkgs amd-ucode intel-ucode"		# Should I install the damned close source Microcodes???
 pkgs="$pkgs grub"				# Obviously we need a boot loader
+pkgs="$pkgs os-prober"				# Detecting other OSes for grub
 pkgs="$pkgs memtest86+"				# memtest86+ for grub
 pkgs="$pkgs efibootmgr"				# We will need efibootmgr if booting via UEFI
 pkgs="$pkgs htop"				# How much memory I am using?
