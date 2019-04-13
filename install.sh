@@ -16,6 +16,10 @@ echo
 pkgs="base"					# Arch base packages
 pkgs="$pkgs sudo"				# Who keeps root account enabled these days???
 pkgs="$pkgs btrfs-progs"			# I am a btrfs user :-/
+pkgs="$pkgs ntfs-3g"				# Better NTFS support
+pkgs="$pkgs exfat-utils"			# ExFat filesystem support
+pkgs="$pkgs f2fs-tools"				# F2FS fielsystem support
+pkgs="$pkgs sshfs"				# SFTP based mounts
 #### pkgs="$pkgs amd-ucode intel-ucode"		# Should I install the damned close source Microcodes???
 pkgs="$pkgs grub"				# Obviously we need a boot loader
 pkgs="$pkgs os-prober"				# Detecting other OSes for grub
