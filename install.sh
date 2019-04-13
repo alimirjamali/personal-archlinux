@@ -5,7 +5,7 @@ echo "Installing Arch Linux to /mnt/arch ..."
 echo
 
 ### Updating Keyring, installation media is too old!!!
-echo pacman -Sy --noconfirm archlinux-keyring
+# echo pacman -Sy --noconfirm archlinux-keyring
 
 # Let's assume that the drive is partitioned and ...
 # Everything should be mounted on /mnt/arch
@@ -25,13 +25,14 @@ pkgs="$pkgs mc"					# Nostalgia :-)
 pkgs="$pkgs tmux screen"			# I go both ways (in a good way)
 pkgs="$pkgs vim vim-plugins"			# How can we live without vim ???
 pkgs="$pkgs screenfetch"			# Showing off
-# Networking
+# Networking / Internet
 pkgs="$pkgs openssh"				# We should be able to SSH/SFTP to this PC
 pkgs="$pkgs iw wpa_supplicant dhclient"		# Who uses Ethernet these days ???
 pkgs="$pkgs lyns links"				# Text based browsers just if needed
 pkgs="$pkgs aria2 curl wget"			# Download tools
+pkgs="$pkgs mutt"				# Reading emails
 # Development
-pkgs="$pkgs arduino"				# Are we doing embedded development?
+# pkgs="$pkgs arduino"				# Are we doing embedded development?
 pkgs="$pkgs git"				# Hello Linus
 pkgs="$pkgs base-devel"				# Maybe some development
 pkgs="$pkgs qt5"				# Some GUI development
