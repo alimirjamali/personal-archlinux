@@ -32,6 +32,7 @@ pkgs="$pkgs iw wpa_supplicant dhclient"		# Who uses Ethernet these days ???
 pkgs="$pkgs lynx links"				# Text based browsers just if needed
 pkgs="$pkgs aria2 curl wget"			# Download tools
 pkgs="$pkgs mutt"				# Reading emails
+pkgs="$pkgs iftop nload"			# Network usage monitoring tools
 # Development
 # pkgs="$pkgs arduino"				# Are we doing embedded development?
 pkgs="$pkgs git"				# Hello Linus
