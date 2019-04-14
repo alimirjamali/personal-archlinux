@@ -32,6 +32,10 @@ pkgs="$pkgs tmux screen"			# I go both ways (in a good way)
 pkgs="$pkgs vim vim-plugins"			# How can we live without vim ???
 pkgs="$pkgs screenfetch"			# Showing off
 pkgs="$pkgs lshw"				# Tools to list hardware
+pkgs="$pkgs fwupd"				# To upgrade firmware (has anyone over used this? :-o)
+pkgs="$pkgs lsof"				# No only list of open files, but also list of open ports.
+pkgs="$pkgs unzip"				# This is not to unzip a partner ;-)
+pkgs="$pkgs snapper snap-sync snap-pac"		# openSUSE snapper tools
 # Networking / Internet
 pkgs="$pkgs openssh"				# We should be able to SSH/SFTP to this PC
 pkgs="$pkgs iw wpa_supplicant dhclient"		# Who uses Ethernet these days ???
@@ -39,6 +43,10 @@ pkgs="$pkgs lynx links"				# Text based browsers just if needed
 pkgs="$pkgs aria2 curl wget"			# Download tools
 pkgs="$pkgs mutt"				# Reading emails
 pkgs="$pkgs iftop nload"			# Network usage monitoring tools
+pkgs="$pkgs dnscrypt-proxy"			# We are anonymous!
+pkgs="$pkgs tor nyx"				# Really anonymous!!!
+pkgs="$pkgs dnsutils"				# Whois who?
+# pkgs="$pkgs openvpn"				# Will be deleted in favor of Wireguard
 # Development
 # pkgs="$pkgs arduino"				# Are we doing embedded development?
 pkgs="$pkgs git"				# Hello Linus
@@ -47,13 +55,24 @@ pkgs="$pkgs qt5"				# Some GUI development
 pkgs="$pkgs python"				# Everyone is a parseltongue these days
 # GUI
 # X Window
-#### pkgs="$pkgs xorg xorg-apps"		# Some Graphics plz.
-#### pkgs="$pkgs xorg-fonts xorg-drivers"	# Moar Graphiczzz.
+pkgs="$pkgs xorg xorg-apps"			# Some Graphics plz.
+pkgs="$pkgs xorg-fonts xorg-drivers"		# Moar Graphiczzz.
 # I ain't no i3 user :-P
 #### pkgs="$pkgs gnome gnome-extra"		# Gnome???
 #### pkgs="$pkgs plasma kde-applications"	# KDE Plasma???
 #### pkgs="$pkgs xfce4 xfce4-goodies"		# This is my prefered Desktop Environment
 #### pkgs="$pkgs lightdm lightdm-gtk-greeter"	# Display manager for XFCE (and others)
+# GUI applications from here #
+pkgs="$pkgs audacity"				# I can talk
+pkgs="$pkgs vlc"				# We need the traffic cone :-)
+pkgs="$pkgs obs-studio"				# Screen recodering
+pkgs="$pkgs simplescreenrecorder"		# Moar screen recording :-P
+pkgs="$pkgs firefox"				# We need firefox browser
+pkgs="$pkgs chromium"				# ... and chromium!!! 
+pkgs="$pkgs libreoffice-fresh"			# Tools used once a week
+pkgs="$pkgs krita"				# To draw manga
+pkgs="$pkgs gimp"				# Does anyone use this?
+pkgs="$pkgs keepassxc"				# Who needs online password managers?
 
 pacstrap /mnt/arch $pkgs
 
