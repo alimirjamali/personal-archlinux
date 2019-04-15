@@ -46,12 +46,15 @@ pkgs="$pkgs iftop nload"			# Network usage monitoring tools
 pkgs="$pkgs dnscrypt-proxy"			# We are anonymous!
 pkgs="$pkgs tor nyx"				# Really anonymous!!!
 pkgs="$pkgs dnsutils"				# Whois who?
+pkgs="$pkgs speedtest-cli"			# How fast we are going?
 # pkgs="$pkgs openvpn"				# Will be deleted in favor of Wireguard
 # Development
 # pkgs="$pkgs arduino"				# Are we doing embedded development?
+# pkgs="$pkgs kicad"				# ... or EDA?
 pkgs="$pkgs git"				# Hello Linus
 pkgs="$pkgs base-devel"				# Maybe some development
 pkgs="$pkgs qt5"				# Some GUI development
+# pkgs="$pkgs atom"				# But why not vim? Why? Why? Why?
 pkgs="$pkgs python"				# Everyone is a parseltongue these days
 # GUI
 # X Window
@@ -67,6 +70,7 @@ pkgs="$pkgs audacity"				# I can talk
 pkgs="$pkgs vlc"				# We need the traffic cone :-)
 pkgs="$pkgs obs-studio"				# Screen recodering
 pkgs="$pkgs simplescreenrecorder"		# Moar screen recording :-P
+pkgs="$pkgs handbrake handbrake-cli"		# To transcode screen recordings
 pkgs="$pkgs firefox"				# We need firefox browser
 pkgs="$pkgs chromium"				# ... and chromium!!! 
 pkgs="$pkgs libreoffice-fresh"			# Tools used once a week
