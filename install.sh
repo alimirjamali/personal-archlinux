@@ -44,9 +44,12 @@ pkgs="$pkgs aria2 curl wget"			# Download tools
 pkgs="$pkgs mutt"				# Reading emails
 pkgs="$pkgs iftop nload"			# Network usage monitoring tools
 pkgs="$pkgs dnscrypt-proxy"			# We are anonymous!
-pkgs="$pkgs tor nyx"				# Really anonymous!!!
+pkgs="$pkgs tor nyx torify"			# Really anonymous!!!
 pkgs="$pkgs dnsutils"				# Whois who?
 pkgs="$pkgs speedtest-cli"			# How fast we are going?
+pkgs="$pkgs ethtools"				# I love wired connections :-D
+pkgs="$pkgs gnu-netcat"				# Listening to network packets
+pkgs="$pkgs ntp"				# What time it is?
 # pkgs="$pkgs openvpn"				# Will be deleted in favor of Wireguard
 # Development
 # pkgs="$pkgs arduino"				# Are we doing embedded development?
@@ -61,8 +64,8 @@ pkgs="$pkgs python"				# Everyone is a parseltongue these days
 pkgs="$pkgs xorg xorg-apps"			# Some Graphics plz.
 pkgs="$pkgs xorg-fonts xorg-drivers"		# Moar Graphiczzz.
 # I ain't no i3 user :-P
+pkgs="$pkgs plasma kde-applications"	# KDE Plasma???
 #### pkgs="$pkgs gnome gnome-extra"		# Gnome???
-#### pkgs="$pkgs plasma kde-applications"	# KDE Plasma???
 #### pkgs="$pkgs xfce4 xfce4-goodies"		# This is my prefered Desktop Environment
 #### pkgs="$pkgs lightdm lightdm-gtk-greeter"	# Display manager for XFCE (and others)
 # GUI applications from here #
