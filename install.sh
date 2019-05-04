@@ -14,6 +14,7 @@ echo
 ###  Installing desired packages
 # base packages
 pkgs="base"					# Arch base packages
+pkgs="$pkgs linux-headers dkms" 		# Linux Headers for Dynamic Kernel Module Support (if needed)
 pkgs="$pkgs sudo"				# Who keeps root account enabled these days???
 pkgs="$pkgs btrfs-progs"			# I am a btrfs user :-/
 pkgs="$pkgs compsize"				# ... with online zlib/zstd compression
@@ -40,7 +41,10 @@ pkgs="$pkgs snapper snap-sync snap-pac"		# openSUSE snapper tools
 pkgs="$pkgs mlocate"				# Where the hell are my files???
 pkgs="$pkgs zip unzip"				# But why not gzip?
 pkgs="$pkgs cups cups-pdf"			# I hate printers and PDF files :-/
+pkgs="$pkgs arch-install-scripts" 		# If I ever want to install to external media (or update fstab)
 # Networking / Internet
+pkgs="$pkgs NetworkManager" 			# We need a NetworkManager (do not forget to enable the service)
+pkgs="$pkgs traceroute" 			# Where am i going to?
 pkgs="$pkgs openssh"				# We should be able to SSH/SFTP to this PC
 pkgs="$pkgs iw wpa_supplicant dhclient"		# Who uses Ethernet these days ???
 pkgs="$pkgs lynx links"				# Text based browsers just if needed
@@ -48,7 +52,7 @@ pkgs="$pkgs aria2 curl wget"			# Download tools
 pkgs="$pkgs mutt"				# Reading emails
 pkgs="$pkgs iftop nload"			# Network usage monitoring tools
 pkgs="$pkgs dnscrypt-proxy"			# We are anonymous!
-pkgs="$pkgs tor nyx torify polipo"		# Really anonymous!!!
+pkgs="$pkgs tor nyx torify polipo"		# Really anonymous!!! Warning!!!: Disable polipo's cache
 pkgs="$pkgs dnsutils"				# Whois who?
 pkgs="$pkgs speedtest-cli"			# How fast we are going?
 pkgs="$pkgs ethtools"				# I love wired connections :-D
