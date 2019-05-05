@@ -28,6 +28,7 @@ pkgs="$pkgs os-prober"				# Detecting other OSes for grub
 pkgs="$pkgs memtest86+"				# memtest86+ for grub
 pkgs="$pkgs efibootmgr"				# We will need efibootmgr if booting via UEFI
 pkgs="$pkgs htop"				# How much memory I am using?
+pkgs="$pkgs iotop"				# Why the storage is so damn slow??
 pkgs="$pkgs ncdu"				# How much disk space I am using?
 pkgs="$pkgs mc"					# Nostalgia :-)
 pkgs="$pkgs tmux screen"			# I go both ways (in a good way)
@@ -42,6 +43,7 @@ pkgs="$pkgs mlocate"				# Where the hell are my files???
 pkgs="$pkgs zip unzip"				# But why not gzip?
 pkgs="$pkgs cups cups-pdf"			# I hate printers and PDF files :-/
 pkgs="$pkgs arch-install-scripts" 		# If I ever want to install to external media (or update fstab)
+pkgs="$pkgs hdparm sdparm smartmontools"	# Utilities to manage spinning rust and NAND
 # Networking / Internet
 pkgs="$pkgs NetworkManager" 			# We need a NetworkManager (do not forget to enable the service)
 pkgs="$pkgs traceroute" 			# Where am i going to?
@@ -92,6 +94,8 @@ pkgs="$pkgs libreoffice-fresh"			# Tools used once a week
 pkgs="$pkgs krita"				# To draw manga
 pkgs="$pkgs gimp"				# Does anyone use this?
 pkgs="$pkgs keepassxc"				# Who needs online password managers?
+pkgs="$pkgs workrave redshift"			# To protect my health (also consider plasma5-applets-redshift-control if using KDE Plasma)
+pkgs="$pkgs gsmartcontrol"			# Getting S.M.A.R.Ter
 
 pacstrap /mnt/arch $pkgs
 
