@@ -64,11 +64,12 @@ pkgs="$pkgs ntp"				# What time it is?
 # pkgs="$pkgs kicad"				# ... or EDA?
 pkgs="$pkgs git"				# Hello Linus
 pkgs="$pkgs base-devel"				# Maybe some development
+pkgs="$pkgs python"				# Everyone is a parseltongue these days
 pkgs="$pkgs go go-tools gcc-go"			# Some packages need golang to compile (but why am I installing the GCC variant?)
 pkgs="$pkgs rust"				# Cool kids code with rust these days
 pkgs="$pkgs qt5"				# Some GUI development
 # pkgs="$pkgs atom"				# But why not vim? Why? Why? Why?
-pkgs="$pkgs python"				# Everyone is a parseltongue these days
+# pkgs="$pkgs fpc fpc-src lazarus qt5pas" 	# Free Pascal for nostalgic people
 # GUI
 # X Window
 pkgs="$pkgs xorg xorg-apps"			# Some Graphics plz.
