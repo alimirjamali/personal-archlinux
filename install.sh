@@ -101,6 +101,7 @@ pkgs="$pkgs workrave redshift"			# To protect my health (also consider plasma5-a
 pkgs="$pkgs gsmartcontrol"			# Getting S.M.A.R.Ter
 # Virtualization tools
 pkgs="$pkgs libvirt virt-manager bridge-utils" 	# In case we need VMs (enable libvirtd)
+pkgs="$pkgs qemu" 				# In case we require to emulate other archituctures
 pkgs="$pkgs dosbox" 				# I only play old school games :-P
 
 pacstrap /mnt/arch $pkgs
