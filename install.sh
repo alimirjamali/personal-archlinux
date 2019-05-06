@@ -16,6 +16,7 @@ echo
 pkgs="base"					# Arch base packages
 pkgs="$pkgs linux-headers dkms" 		# Linux Headers for Dynamic Kernel Module Support (if needed)
 pkgs="$pkgs sudo"				# Who keeps root account enabled these days???
+pkgs="$pkgs pacman-contrib" 			# Pokémon add-ons
 pkgs="$pkgs btrfs-progs"			# I am a btrfs user :-/
 pkgs="$pkgs compsize"				# ... with online zlib/zstd compression
 pkgs="$pkgs ntfs-3g"				# Better NTFS support
@@ -29,6 +30,7 @@ pkgs="$pkgs memtest86+"				# memtest86+ for grub
 pkgs="$pkgs efibootmgr"				# We will need efibootmgr if booting via UEFI
 pkgs="$pkgs htop"				# How much memory I am using?
 pkgs="$pkgs iotop"				# Why the storage is so damn slow??
+pkgs="$pkgs glances" 				# Sexy tool to monitor system resources
 pkgs="$pkgs ncdu"				# How much disk space I am using?
 pkgs="$pkgs mc"					# Nostalgia :-)
 pkgs="$pkgs tmux screen"			# I go both ways (in a good way)
@@ -60,6 +62,7 @@ pkgs="$pkgs speedtest-cli"			# How fast we are going?
 pkgs="$pkgs ethtools"				# I love wired connections :-D
 pkgs="$pkgs gnu-netcat"				# Listening to network packets
 pkgs="$pkgs ntp"				# What time it is?
+pkgs="$pkgs samba" 				# Sharing files with poor Wandozee users
 # pkgs="$pkgs openvpn"				# Will be deleted in favor of Wireguard
 # Development
 # pkgs="$pkgs arduino"				# Are we doing embedded development?
@@ -96,6 +99,9 @@ pkgs="$pkgs gimp"				# Does anyone use this?
 pkgs="$pkgs keepassxc"				# Who needs online password managers?
 pkgs="$pkgs workrave redshift"			# To protect my health (also consider plasma5-applets-redshift-control if using KDE Plasma)
 pkgs="$pkgs gsmartcontrol"			# Getting S.M.A.R.Ter
+# Virtualization tools
+pkgs="$pkgs libvirt virt-manager bridge-utils" 	# In case we need VMs (enable libvirtd)
+pkgs="$pkgs dosbox" 				# I only play old school games :-P
 
 pacstrap /mnt/arch $pkgs
 
