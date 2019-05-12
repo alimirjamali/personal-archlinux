@@ -8,12 +8,12 @@ menuentry "System shutdown" --class shutdown --class system {
         echo "System shutting down..."
         halt }
 
-menuentry "System restart" --class restart --class system {
+menuentry "System restart" --class reboot --class system {
         echo "System rebooting..."
         reboot }
 
 if [ ${grub_platform} == "efi" ]; then
-        menuentry "Firmware setup" --class firmware --class system {
+        menuentry "Firmware setup" --class efi --class firmware --class system {
                 fwsetup }
 fi
 
