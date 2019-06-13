@@ -75,6 +75,7 @@ pkgs="$pkgs python"				# Everyone is a parseltongue these days
 pkgs="$pkgs go go-tools gcc-go"			# Some packages need golang to compile (but why am I installing the GCC variant?)
 pkgs="$pkgs rust"				# Cool kids code with rust these days
 pkgs="$pkgs qt5"				# Some GUI development
+pkgs="$pkgs emscripten" 			# WebAssembly
 # pkgs="$pkgs atom"				# But why not vim? Why? Why? Why?
 # pkgs="$pkgs fpc fpc-src lazarus qt5pas" 	# Free Pascal for nostalgic people
 # GUI
