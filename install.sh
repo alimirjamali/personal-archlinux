@@ -64,6 +64,7 @@ pkgs+=(dnscrypt-proxy)			# We are anonymous!
 pkgs+=(tor nyx torify polipo)		# Really anonymous!!! Warning!!!: Disable polipo's cache
 pkgs+=(dnsutils)			# Whois who?
 pkgs+=(speedtest-cli)			# How fast we are going?
+pkgs+=(vnstat) 				# ... and how much data i have consumed !?
 pkgs+=(ethtools)			# I love wired connections :-D
 pkgs+=(gnu-netcat)			# Listening to network packets
 pkgs+=(ntp)				# What time it is?
