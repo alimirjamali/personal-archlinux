@@ -18,6 +18,7 @@ pkgs+=(base)					# Arch base packages
 
 ### Other desired packages
 pkgs+=(linux-headers dkms) 		# Linux Headers for Dynamic Kernel Module Support (if needed)
+pkgs+=(linux-hardened linux-lts) 	# Alternative Kernels if needed
 pkgs+=(sudo)				# Who keeps root account enabled these days???
 pkgs+=(pacman-contrib) 			# Pokémon add-ons
 pkgs+=(btrfs-progs)			# I am a btrfs user :-/
