@@ -114,6 +114,7 @@ pkgs+=(gsmartcontrol)			# Getting S.M.A.R.Ter
 pkgs+=(libvirt virt-manager bridge-utils) 	# In case we need VMs (enable libvirtd)
 pkgs+=(qemu) 				# In case we require to emulate other archituctures
 pkgs+=(dosbox)				# I only play old school games :-P
+pkgs+=(youtube-dl) 			# Downloading Youtube videos for offline access :-P
 
 pacstrap /mnt/arch "${pkgs[@]}"
 
