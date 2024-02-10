@@ -90,6 +90,7 @@ pkgs+=(ntp)				# What time it is?
 pkgs+=(samba)				# Sharing files with poor Wandozee users
 #! pkgs+=(openvpn)			# Will be deleted in favor of Wireguard
 ### Development
+pkgs+=(code)				# VSCode
 pkgs+=(gcc clang llvm)			# Two competing FOSS compilers 
 pkgs+=(arduino)				# Are we doing embedded development?
 pkgs+=(kicad)				# ... or EDA?
@@ -135,6 +136,7 @@ pkgs+=(qemu-full)			# In case we require to emulate other archituctures
 pkgs+=(dosbox)				# I only play old school games :-P
 pkgs+=(yt-dlp)	 			# Downloading Youtube videos for offline access :-P
 pkgs+=(gparted)				# Partitioning for dummies
+pkgs+=(cfdisk cgdisk)			# ncurses partitioning
 
 ### Installing packages in interactive mode ###
 pacstrap -i $install_target "${pkgs[@]}"
