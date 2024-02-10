@@ -8,8 +8,19 @@ echo
 # echo pacman -Sy --noconfirm archlinux-keyring
 
 # Let's assume that the drive is partitioned and ...
-# Everything should be mounted on the following directory
-install_target="/mnt/arch"
+# Everything should be mounted on the directory provided as argument or /mnt/arch
+if [ -z "$1" ]
+	then
+		install_target="/mnt/arch"
+	else
+		install_target=$1
+fi
+if [ ! -d $install_target ]
+	then
+		echo "Nor any installation directory was provided as an argument, neither the default /mnt/arch exists. Exiting!"
+		exit
+fi
+
 # swap should be enabled (if available).
 
 ### Selecting packages for installation
@@ -20,6 +31,8 @@ pkgs+=(base)					# Arch base packages
 ### Other desired packages
 pkgs+=(linux-headers dkms) 		# Linux Headers for Dynamic Kernel Module Support (if needed)
 pkgs+=(linux-hardened linux-lts) 	# Alternative Kernels if needed
+pkgs+=(mkinitcpio dracut booster)	# initramfs generators
+pkgs+=(man-db)				# Offline manuals
 pkgs+=(sudo opendoas)			# Who keeps root account enabled these days???
 pkgs+=(pacman-contrib) 			# Pokémon add-ons
 pkgs+=(btrfs-progs)			# I am a btrfs user :-/
@@ -57,7 +70,8 @@ pkgs+=(cups cups-pdf)			# I hate printers and PDF files :-/
 pkgs+=(arch-install-scripts) 		# If I ever want to install to external media (or update fstab)
 pkgs+=(hdparm sdparm smartmontools)	# Utilities to manage spinning rust and NAND
 # Networking / Internet
-pkgs+=(NetworkManager)			# We need a NetworkManager (do not forget to enable the service)
+pkgs+=(networkmanager)			# We need a NetworkManager (do not forget to enable the service)
+pkgs+=(iptables-nft)			# nftables
 pkgs+=(traceroute) 			# Where am i going to?
 pkgs+=(openssh)				# We should be able to SSH/SFTP to this PC
 pkgs+=(iw wpa_supplicant dhclient)	# Who uses Ethernet these days ???
@@ -66,16 +80,17 @@ pkgs+=(aria2 curl wget)			# Download tools
 pkgs+=(mutt)				# Reading emails
 pkgs+=(iftop nethogs nload)		# Network usage monitoring tools
 pkgs+=(dnscrypt-proxy)			# We are anonymous!
-pkgs+=(tor nyx torify polipo)		# Really anonymous!!! Warning!!!: Disable polipo's cache
+pkgs+=(tor nyx torsocks)		# Really anonymous!!!
 pkgs+=(dnsutils)			# Whois who?
 pkgs+=(speedtest-cli)			# How fast we are going?
 pkgs+=(vnstat) 				# ... and how much data i have consumed !?
-pkgs+=(ethtools)			# I love wired connections :-D
+pkgs+=(ethtool)				# I love wired connections :-D
 pkgs+=(gnu-netcat)			# Listening to network packets
 pkgs+=(ntp)				# What time it is?
 pkgs+=(samba)				# Sharing files with poor Wandozee users
 #! pkgs+=(openvpn)			# Will be deleted in favor of Wireguard
 ### Development
+pkgs+=(gcc clang llvm)			# Two competing FOSS compilers 
 pkgs+=(arduino)				# Are we doing embedded development?
 pkgs+=(kicad)				# ... or EDA?
 pkgs+=(git)				# Hello Linus
@@ -97,12 +112,13 @@ pkgs+=(xorg-fonts xorg-drivers)		# Moar Graphiczzz.
 pkgs+=(xfce4 xfce4-goodies)		# This is my prefered Desktop Environment
 pkgs+=(lightdm lightdm-gtk-greeter)	# Display manager for XFCE (and others)
 # GUI applications from here #
+pkgs+=(gnu-free-fonts noto-fonts)	# Some fonts
+pkgs+=(pipewire)			# Sound system
 pkgs+=(audacity)			# I can talk
 pkgs+=(vlc)				# We need the traffic cone :-)
 pkgs+=(obs-studio)			# Screen recodering
 pkgs+=(kdenlive)			# NLE for dummies
 pkgs+=(openshot)			# Isn't Kdenlive good enough?
-pkgs+=(simplescreenrecorder)		# Moar screen recording :-P
 pkgs+=(handbrake handbrake-cli)		# To transcode screen recordings
 pkgs+=(firefox)				# We need firefox browser
 pkgs+=(chromium)			# ... and chromium!!! 
@@ -115,12 +131,13 @@ pkgs+=(workrave redshift)		# To protect my health (also consider plasma5-applets
 pkgs+=(gsmartcontrol)			# Getting S.M.A.R.Ter
 # Virtualization tools
 pkgs+=(libvirt virt-manager bridge-utils) 	# In case we need VMs (enable libvirtd)
-pkgs+=(qemu) 				# In case we require to emulate other archituctures
+pkgs+=(qemu-full)			# In case we require to emulate other archituctures
 pkgs+=(dosbox)				# I only play old school games :-P
 pkgs+=(yt-dlp)	 			# Downloading Youtube videos for offline access :-P
 pkgs+=(gparted)				# Partitioning for dummies
 
-pacstrap $install_target "${pkgs[@]}"
+### Installing packages in interactive mode ###
+pacstrap -i $install_target "${pkgs[@]}"
 
 ### We need mount points of course.
 genfstab -U $install_target >> $install_target/etc/fstab
