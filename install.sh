@@ -136,7 +136,7 @@ pkgs+=(qemu-full)			# In case we require to emulate other archituctures
 pkgs+=(dosbox)				# I only play old school games :-P
 pkgs+=(yt-dlp)	 			# Downloading Youtube videos for offline access :-P
 pkgs+=(gparted)				# Partitioning for dummies
-pkgs+=(cfdisk cgdisk)			# ncurses partitioning
+pkgs+=(util-linux parted gptfdisk)	# ncurses partitioning
 
 ### Installing packages in interactive mode ###
 pacstrap -i $install_target "${pkgs[@]}"
