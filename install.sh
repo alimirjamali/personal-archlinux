@@ -8,7 +8,8 @@ echo
 # echo pacman -Sy --noconfirm archlinux-keyring
 
 # Let's assume that the drive is partitioned and ...
-# Everything should be mounted on /mnt/arch
+# Everything should be mounted on the following directory
+install_target="/mnt/arch"
 # swap should be enabled (if available).
 
 ### Selecting packages for installation
@@ -19,7 +20,7 @@ pkgs+=(base)					# Arch base packages
 ### Other desired packages
 pkgs+=(linux-headers dkms) 		# Linux Headers for Dynamic Kernel Module Support (if needed)
 pkgs+=(linux-hardened linux-lts) 	# Alternative Kernels if needed
-pkgs+=(sudo)				# Who keeps root account enabled these days???
+pkgs+=(sudo opendoas)			# Who keeps root account enabled these days???
 pkgs+=(pacman-contrib) 			# Pokémon add-ons
 pkgs+=(btrfs-progs)			# I am a btrfs user :-/
 pkgs+=(compsize)			# ... with online zlib/zstd compression
@@ -39,7 +40,7 @@ pkgs+=(iotop)				# Why the storage is so damn slow??
 pkgs+=(glances)				# Sexy tool to monitor system resources
 pkgs+=(dmidecode) 			# To see details about RAM modules
 pkgs+=(i2c-tools) 			# I2C tools to see FAN RPM
-pkgs+=(ncdu)				# How much disk space I am using?
+pkgs+=(ncdu duf)			# How much disk space I am using?
 pkgs+=(mc)				# Nostalgia :-)
 pkgs+=(tmux screen)			# I go both ways (in a good way)
 pkgs+=(vim vim-plugins)			# How can we live without vim ???
@@ -75,14 +76,14 @@ pkgs+=(ntp)				# What time it is?
 pkgs+=(samba)				# Sharing files with poor Wandozee users
 #! pkgs+=(openvpn)			# Will be deleted in favor of Wireguard
 ### Development
-#! pkgs+=(arduino)			# Are we doing embedded development?
-#! pkgs+=(kicad)			# ... or EDA?
+pkgs+=(arduino)				# Are we doing embedded development?
+pkgs+=(kicad)				# ... or EDA?
 pkgs+=(git)				# Hello Linus
 pkgs+=(base-devel)			# Maybe some development
 pkgs+=(python)				# Everyone is a parseltongue these days
 pkgs+=(go go-tools gcc-go)		# Some packages need golang to compile (but why am I installing the GCC variant?)
 pkgs+=(rust)				# Cool kids code with rust these days
-pkgs+=(qt5)				# Some GUI development
+pkgs+=(qt5-base qt6-base qt5-doc qt6-doc)	# Some GUI development
 pkgs+=(emscripten) 			# WebAssembly
 #! pkgs+=(atom)				# But why not vim? Why? Why? Why?
 #! pkgs+=(fpc fpc-src lazarus qt5pas)	# Free Pascal for nostalgic people
@@ -91,14 +92,15 @@ pkgs+=(emscripten) 			# WebAssembly
 pkgs+=(xorg xorg-apps)			# Some Graphics plz.
 pkgs+=(xorg-fonts xorg-drivers)		# Moar Graphiczzz.
 # I ain't no i3 user :-P
-pkgs+=(plasma kde-applications)		# KDE Plasma???
+#! pkgs+=(plasma kde-applications)		# KDE Plasma???
 #! pkgs+=(gnome gnome-extra)		# Gnome???
-#! pkgs+=(xfce4 xfce4-goodies)		# This is my prefered Desktop Environment
-#! pkgs+=(lightdm lightdm-gtk-greeter)	# Display manager for XFCE (and others)
+pkgs+=(xfce4 xfce4-goodies)		# This is my prefered Desktop Environment
+pkgs+=(lightdm lightdm-gtk-greeter)	# Display manager for XFCE (and others)
 # GUI applications from here #
 pkgs+=(audacity)			# I can talk
 pkgs+=(vlc)				# We need the traffic cone :-)
 pkgs+=(obs-studio)			# Screen recodering
+pkgs+=(kdenlive)			# NLE for dummies
 pkgs+=(openshot)			# Isn't Kdenlive good enough?
 pkgs+=(simplescreenrecorder)		# Moar screen recording :-P
 pkgs+=(handbrake handbrake-cli)		# To transcode screen recordings
@@ -107,6 +109,7 @@ pkgs+=(chromium)			# ... and chromium!!!
 pkgs+=(libreoffice-fresh)		# Tools used once a week
 pkgs+=(krita)				# To draw manga
 pkgs+=(gimp)				# Does anyone use this?
+pkgs+=(inkscape)			# Vector
 pkgs+=(keepassxc)			# Who needs online password managers?
 pkgs+=(workrave redshift)		# To protect my health (also consider plasma5-applets-redshift-control if using KDE Plasma)
 pkgs+=(gsmartcontrol)			# Getting S.M.A.R.Ter
@@ -114,14 +117,15 @@ pkgs+=(gsmartcontrol)			# Getting S.M.A.R.Ter
 pkgs+=(libvirt virt-manager bridge-utils) 	# In case we need VMs (enable libvirtd)
 pkgs+=(qemu) 				# In case we require to emulate other archituctures
 pkgs+=(dosbox)				# I only play old school games :-P
-pkgs+=(youtube-dl) 			# Downloading Youtube videos for offline access :-P
+pkgs+=(yt-dlp)	 			# Downloading Youtube videos for offline access :-P
+pkgs+=(gparted)				# Partitioning for dummies
 
-pacstrap /mnt/arch "${pkgs[@]}"
+pacstrap $install_target "${pkgs[@]}"
 
 ### We need mount points of course.
-genfstab -U /mnt/arch >> /mnt/arch/etc/fstab
+genfstab -U $install_target >> $install_target/etc/fstab
 
 ### chroot to the new installation
 echo "chrooting to the new installation"
-arch-chroot /mnt/arch
+arch-chroot $install_target
 
