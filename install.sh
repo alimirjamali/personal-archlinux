@@ -30,7 +30,8 @@ pkgs+=(base)					# Arch base packages
 
 ### Other desired packages
 pkgs+=(linux-headers dkms) 		# Linux Headers for Dynamic Kernel Module Support (if needed)
-pkgs+=(linux-hardened linux-lts) 	# Alternative Kernels if needed
+pkgs+=(linux linux-hardened linux-lts) 	# Kernel & alternative Kernels if needed
+pkgs+=(linux-firmware)			# Kernel Firmware of devices
 pkgs+=(mkinitcpio dracut booster)	# initramfs generators
 pkgs+=(man-db)				# Offline manuals
 pkgs+=(sudo opendoas)			# Who keeps root account enabled these days???
@@ -80,7 +81,7 @@ pkgs+=(aria2 curl wget)			# Download tools
 pkgs+=(mutt)				# Reading emails
 pkgs+=(iftop nethogs nload)		# Network usage monitoring tools
 pkgs+=(dnscrypt-proxy)			# We are anonymous!
-pkgs+=(tor nyx torsocks)		# Really anonymous!!!
+pkgs+=(tor nyx torsocks torbrowser-launcher)	# Really anonymous!!!
 pkgs+=(dnsutils)			# Whois who?
 pkgs+=(speedtest-cli)			# How fast we are going?
 pkgs+=(vnstat) 				# ... and how much data i have consumed !?
@@ -114,7 +115,7 @@ pkgs+=(xfce4 xfce4-goodies)		# This is my prefered Desktop Environment
 pkgs+=(lightdm lightdm-gtk-greeter)	# Display manager for XFCE (and others)
 # GUI applications from here #
 pkgs+=(gnu-free-fonts noto-fonts)	# Some fonts
-pkgs+=(pipewire)			# Sound system
+pkgs+=(pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber helvum)	# Sound system
 pkgs+=(audacity)			# I can talk
 pkgs+=(vlc)				# We need the traffic cone :-)
 pkgs+=(obs-studio)			# Screen recodering
